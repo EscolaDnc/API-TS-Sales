@@ -4,6 +4,7 @@ import cors from 'cors';
 import routes from './routes';
 import { AppDataSource } from '@shared/typeorm/data-source';
 import ErrorHandlerMiddleware from '@shared/errors/ErrorHandlerMiddleware';
+import { errors } from 'celebrate';
 
 AppDataSource.initialize()
   .then(async () => {
@@ -12,6 +13,7 @@ AppDataSource.initialize()
     app.use(express.json());
 
     app.use(routes);
+    app.use(errors());
     app.use(ErrorHandlerMiddleware.handleError);
 
     console.log('Connected to the database! 🎉');
