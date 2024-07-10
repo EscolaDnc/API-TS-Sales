@@ -25,10 +25,14 @@ class UpdateProfileService {
       throw new AppError('User not found.');
     }
 
-    const userUpdateEmail = await userRepository.findByEmail(email);
+    if (email) {
+      const userUpdateEmail = await userRepository.findByEmail(email);
 
-    if (userUpdateEmail && userUpdateEmail.id !== user_id) {
-      throw new AppError('There is already one user with this email.');
+      if (userUpdateEmail) {
+        throw new AppError('There is already one user with this email.', 409);
+      }
+
+      user.email = email;
     }
 
     if (password && !old_password) {
@@ -45,8 +49,9 @@ class UpdateProfileService {
       user.password = await hash(password, 8);
     }
 
-    user.name = name;
-    user.email = email;
+    if (name) {
+      user.name = name;
+    }
 
     await userRepository.save(user);
 
