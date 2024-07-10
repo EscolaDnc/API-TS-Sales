@@ -5,6 +5,7 @@ import routes from './routes';
 import { AppDataSource } from '@shared/typeorm/data-source';
 import ErrorHandlerMiddleware from '@shared/errors/ErrorHandlerMiddleware';
 import { errors } from 'celebrate';
+import uploadConfig from '@config/upload';
 
 AppDataSource.initialize()
   .then(async () => {
@@ -12,6 +13,7 @@ AppDataSource.initialize()
     app.use(cors());
     app.use(express.json());
 
+    app.use('/files', express.static(uploadConfig.directory));
     app.use(routes);
     app.use(errors());
     app.use(ErrorHandlerMiddleware.handleError);
