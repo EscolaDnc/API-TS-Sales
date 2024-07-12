@@ -13,7 +13,7 @@ import { Product } from '@modules/products/database/entities/Product';
 
 @Entity('orders_products')
 class OrdersProducts {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @ManyToOne(() => Order, order => order.order_products)
@@ -30,10 +30,10 @@ class OrdersProducts {
   @Column()
   product_id: string;
 
-  @Column({ type: 'decimal' })
+  @Column('decimal')
   price: number;
 
-  @Column({ type: 'int' })
+  @Column('int')
   quantity: number;
 
   @CreateDateColumn()
