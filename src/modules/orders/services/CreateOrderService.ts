@@ -19,13 +19,16 @@ class CreateOrderService {
     const customerExists = await customerRepository.findById(customer_id);
 
     if (!customerExists) {
-      throw new AppError('Could not find any customer with the given id.');
+      throw new AppError('Could not find any customer with the given id.', 404);
     }
 
     const existsProducts = await productRepository.findAllByIds(products);
 
     if (!existsProducts.length) {
-      throw new AppError('Could not find any products with the given ids.');
+      throw new AppError(
+        'Could not find any products with the given ids.',
+        404,
+      );
     }
 
     const existsProductsIds = existsProducts.map(product => product.id);
@@ -37,6 +40,7 @@ class CreateOrderService {
     if (checkInexistentProducts.length) {
       throw new AppError(
         `Could not find product ${checkInexistentProducts[0].id}.`,
+        404,
       );
     }
 
@@ -50,6 +54,7 @@ class CreateOrderService {
       throw new AppError(
         `The quantity ${quantityAvailable[0].quantity}
          is not available for ${quantityAvailable[0].id}.`,
+        409,
       );
     }
 
