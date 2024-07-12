@@ -1,4 +1,5 @@
 import customersRouter from '@modules/customers/routes/CustomersRoutes';
+import ordersRouter from '@modules/orders/routes/OrdersRoutes';
 import productsRouter from '@modules/products/routes/ProductsRoutes';
 import passwordRouter from '@modules/users/routes/PasswordRoutes';
 import profileRouter from '@modules/users/routes/ProfileRoutes';
@@ -14,6 +15,7 @@ routes.use('/sessions', sessionsRouter);
 routes.use('/password', passwordRouter);
 routes.use('/profile', profileRouter);
 routes.use('/customers', customersRouter);
+routes.use('/orders', ordersRouter);
 
 routes.get('/health', (request, response) => {
   return response.json({ message: "I'm alive!" });

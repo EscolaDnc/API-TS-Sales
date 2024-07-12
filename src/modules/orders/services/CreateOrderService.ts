@@ -16,6 +16,7 @@ interface IRequest {
 
 class CreateOrderService {
   public async execute({ customer_id, products }: IRequest): Promise<Order> {
+    // video 1
     const customerExists = await customerRepository.findById(customer_id);
 
     if (!customerExists) {
@@ -30,7 +31,7 @@ class CreateOrderService {
         404,
       );
     }
-
+    // video 2
     const existsProductsIds = existsProducts.map(product => product.id);
 
     const checkInexistentProducts = products.filter(
@@ -44,6 +45,7 @@ class CreateOrderService {
       );
     }
 
+    // video 3
     const quantityAvailable = products.filter(
       product =>
         existsProducts.filter(p => p.id === product.id)[0].quantity <
@@ -58,6 +60,7 @@ class CreateOrderService {
       );
     }
 
+    // video 4
     const serializedProducts = products.map(product => ({
       product_id: product.id,
       quantity: product.quantity,
@@ -69,12 +72,13 @@ class CreateOrderService {
       products: serializedProducts,
     });
 
+    // video 5
     const { order_products } = order;
 
     const updatedProductQuantity = order_products.map(product => ({
       id: product.product_id,
       quantity:
-        existsProducts.filter(p => p.id === product.id)[0].quantity -
+        existsProducts.filter(p => p.id === product.product_id)[0].quantity -
         product.quantity,
     }));
 
