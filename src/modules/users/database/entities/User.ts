@@ -30,6 +30,15 @@ class User {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  @Expose({ name: 'avatar_url' })
+  getAvatarUrl(): string | null {
+    if (!this.avatar) {
+      return null;
+    }
+
+    return `${process.env.APP_API_URL}/files/${this.avatar}`;
+  }
 }
 
 export default User;
