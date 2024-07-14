@@ -1,5 +1,6 @@
+import { inject, injectable } from 'tsyringe';
+import { ICustomersRepository } from '../domain/repositories/ICustomersRepositories';
 import Customer from '../infra/database/entities/Customer';
-import { customerRepository } from '../infra/database/repositories/CustomerRepositories';
 
 interface IPaginateCustomer {
   from: number;
@@ -13,12 +14,18 @@ interface IPaginateCustomer {
   data: Customer[];
 }
 
+injectable();
 class ListCustomerService {
+  constructor(
+    @inject('CustomersRepository')
+    private customersRepository: ICustomersRepository,
+  ) {}
+
   public async execute(
     page: number = 1,
     limit: number = 10,
   ): Promise<IPaginateCustomer> {
-    const [data, total] = await customerRepository.findAndCount({
+    const [data, total] = await this.customersRepository.findAndCount({
       take: limit,
       skip: (page - 1) * limit,
     });
