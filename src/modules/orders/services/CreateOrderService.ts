@@ -1,5 +1,5 @@
 import AppError from '@shared/errors/AppError';
-import { customerRepository } from '@modules/customers/database/repositories/CustomerRepositories';
+import { customerRepository } from '@modules/customers/infra/database/repositories/CustomerRepositories';
 import { productRepository } from '@modules/products/database/repositories/ProductsRepository';
 import { ordersRepository } from '../database/repositories/OrdersRepository';
 import Order from '../database/entities/Order';

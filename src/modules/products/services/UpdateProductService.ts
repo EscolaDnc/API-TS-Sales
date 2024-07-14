@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
-import { Product } from '../database/entities/Product';
-import { productRepository } from '../database/repositories/ProductsRepository';
 import RedisCache from '@shared/cache/RedisCache';
+import { Product } from '../infra/database/entities/Product';
+import { productRepository } from '../infra/database/repositories/ProductsRepository';
 
 interface IRequest {
   id: string;
@@ -39,7 +39,7 @@ class UpdateProductService {
 
     await productRepository.save(product);
 
-    return product;
+    return product as Product;
   }
 }
 

@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
-import { productRepository } from '../database/repositories/ProductsRepository';
 import RedisCache from '@shared/cache/RedisCache';
+import { productRepository } from '../infra/database/repositories/ProductsRepository';
 
 interface IRequest {
   id: string;

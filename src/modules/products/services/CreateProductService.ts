@@ -1,7 +1,7 @@
-import { productRepository } from '@modules/products/database/repositories/ProductsRepository';
 import AppError from '@shared/errors/AppError';
-import { Product } from '../database/entities/Product';
 import RedisCache from '@shared/cache/RedisCache';
+import { productRepository } from '../infra/database/repositories/ProductsRepository';
+import { Product } from '../infra/database/entities/Product';
 
 interface IRequest {
   name: string;
@@ -29,6 +29,6 @@ export class CreateProductService {
 
     await productRepository.save(product);
 
-    return product;
+    return product as Product;
   }
 }

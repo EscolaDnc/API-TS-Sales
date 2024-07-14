@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
-import { productRepository } from '@modules/products/database/repositories/ProductsRepository';
-import { Product } from '../database/entities/Product';
+import { Product } from '../infra/database/entities/Product';
+import { productRepository } from '../infra/database/repositories/ProductsRepository';
 
 interface IRequest {
   id: string;
@@ -14,7 +14,7 @@ class ShowProductService {
       throw new AppError('Product not found.', 404);
     }
 
-    return product;
+    return product as Product;
   }
 }
 

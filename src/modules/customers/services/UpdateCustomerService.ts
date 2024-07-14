@@ -1,6 +1,6 @@
 import AppError from '@shared/errors/AppError';
-import Customer from '../database/entities/Customer';
-import { customerRepository } from '../database/repositories/CustomerRepositories';
+import Customer from '../infra/database/entities/Customer';
+import { customerRepository } from '../infra/database/repositories/CustomerRepositories';
 
 interface IRequest {
   id: string;
