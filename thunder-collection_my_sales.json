@@ -1,0 +1,432 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "my_sales",
+    "collectionId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+    "dateExported": "2024-07-14T02:03:28.505Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "139d9f39-d230-495f-a8c3-1a9a0f9d1d8a",
+            "name": "Products",
+            "containerId": "",
+            "created": "2024-07-03T23:13:57.462Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "46192794-bdfb-4574-98bc-e93c77ea5887",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-07-06T02:41:45.373Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "e2b79173-79e3-4d63-ab8d-77489653d2e0",
+            "name": "Sessions",
+            "containerId": "",
+            "created": "2024-07-06T03:50:04.339Z",
+            "sortNum": 30000
+        },
+        {
+            "_id": "0b522a94-96cb-4e57-98f6-cd200bfc9a7d",
+            "name": "Password",
+            "containerId": "",
+            "created": "2024-07-10T12:07:50.459Z",
+            "sortNum": 40000
+        },
+        {
+            "_id": "980a4896-a675-49de-8b90-d2df9257e8d2",
+            "name": "Profile",
+            "containerId": "",
+            "created": "2024-07-10T15:55:55.373Z",
+            "sortNum": 50000
+        },
+        {
+            "_id": "0021bc0d-16de-466f-a923-01dcb4cd9f36",
+            "name": "Customers",
+            "containerId": "",
+            "created": "2024-07-11T18:24:34.269Z",
+            "sortNum": 60000
+        },
+        {
+            "_id": "b86fd1b8-4ac0-432c-9137-aaaaffbbefa1",
+            "name": "Orders",
+            "containerId": "",
+            "created": "2024-07-12T03:10:41.898Z",
+            "sortNum": 70000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "61498968-df2f-42c4-8cf8-ed42b6e5a15c",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "139d9f39-d230-495f-a8c3-1a9a0f9d1d8a",
+            "name": "index",
+            "url": "http://localhost:3333/products",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-07-03T23:14:04.028Z",
+            "modified": "2024-07-03T23:14:13.722Z",
+            "headers": []
+        },
+        {
+            "_id": "455a884d-6c04-4109-8b31-58ebb56ebf78",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "139d9f39-d230-495f-a8c3-1a9a0f9d1d8a",
+            "name": "show",
+            "url": "http://localhost:3333/products/2",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-07-03T23:14:16.778Z",
+            "modified": "2024-07-04T00:49:00.605Z",
+            "headers": []
+        },
+        {
+            "_id": "5f430e8f-8b0f-4ecd-9d33-fc4766fbf34e",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "139d9f39-d230-495f-a8c3-1a9a0f9d1d8a",
+            "name": "create",
+            "url": "http://localhost:3333/products/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-07-03T23:38:07.829Z",
+            "modified": "2024-07-13T16:03:08.664Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Echo Show 8\",\n  \"price\": 1800.00,\n  \"quantity\": 10\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "89756683-c8d1-4a46-a89b-8c49d6367f0d",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "139d9f39-d230-495f-a8c3-1a9a0f9d1d8a",
+            "name": "update",
+            "url": "http://localhost:3333/products/2",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-07-04T00:49:05.896Z",
+            "modified": "2024-07-13T16:03:09.863Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Echo Show 5\",\n  \"price\": 900.00,\n  \"quantity\": 10\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "622dc6d4-35b6-49d1-86e8-5a834d11a344",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "139d9f39-d230-495f-a8c3-1a9a0f9d1d8a",
+            "name": "delete",
+            "url": "http://localhost:3333/products/2",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-07-04T00:49:58.024Z",
+            "modified": "2024-07-13T16:03:11.384Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ]
+        },
+        {
+            "_id": "e178e6f3-ed92-488e-8bc7-274424344a92",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "46192794-bdfb-4574-98bc-e93c77ea5887",
+            "name": "create",
+            "url": "http://localhost:3333/users",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2024-07-06T02:41:54.048Z",
+            "modified": "2024-07-06T02:42:54.873Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Thiago\",\n  \"email\": \"vheigaht@gmail.com\",\n  \"password\": \"12345678\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "eb00ac70-71cd-42c3-9b6e-00ef2927962f",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "46192794-bdfb-4574-98bc-e93c77ea5887",
+            "name": "list",
+            "url": "http://localhost:3333/users",
+            "method": "GET",
+            "sortNum": 70000,
+            "created": "2024-07-06T03:29:30.585Z",
+            "modified": "2024-07-13T16:03:06.565Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ]
+        },
+        {
+            "_id": "6d74daf3-90e6-4331-8144-fa1f8ef15fb6",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "e2b79173-79e3-4d63-ab8d-77489653d2e0",
+            "name": "create",
+            "url": "http://localhost:3333/sessions",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2024-07-06T03:50:11.961Z",
+            "modified": "2024-07-12T03:19:20.946Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"vheigaht@gmail.com\",\n  \"password\": \"12345678\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "50e18a6e-c6c2-480a-9a90-f1862cf3d0e6",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "46192794-bdfb-4574-98bc-e93c77ea5887",
+            "name": "avatar",
+            "url": "http://localhost:3333/users/avatar",
+            "method": "PATCH",
+            "sortNum": 80000,
+            "created": "2024-07-10T00:37:24.318Z",
+            "modified": "2024-07-13T16:03:07.572Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [],
+                "files": [
+                    {
+                        "name": "avatar",
+                        "value": "/Users/thiagolima/Pictures/thicode/avatar.png"
+                    }
+                ]
+            }
+        },
+        {
+            "_id": "724abfdd-ca54-4a10-a0fa-6021ca203b87",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "0b522a94-96cb-4e57-98f6-cd200bfc9a7d",
+            "name": "forgot",
+            "url": "http://localhost:3333/password/forgot",
+            "method": "POST",
+            "sortNum": 90000,
+            "created": "2024-07-10T12:07:58.509Z",
+            "modified": "2024-07-10T12:09:11.823Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"vheigaht@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "448e6bd7-c13a-4382-a8a2-8012d401ab88",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "0b522a94-96cb-4e57-98f6-cd200bfc9a7d",
+            "name": "reset",
+            "url": "http://localhost:3333/password/reset",
+            "method": "POST",
+            "sortNum": 100000,
+            "created": "2024-07-10T12:17:18.424Z",
+            "modified": "2024-07-10T15:38:12.646Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"token\": \"27983b4c-517a-430f-a8fc-7ca55891f7af\",\n  \"password\": \"1234\",\n  \"password_confirmation\": \"1234\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "f7d87f85-1c80-4d17-a15f-1b2528b3e5de",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "980a4896-a675-49de-8b90-d2df9257e8d2",
+            "name": "show",
+            "url": "http://localhost:3333/profile",
+            "method": "GET",
+            "sortNum": 110000,
+            "created": "2024-07-10T15:56:03.180Z",
+            "modified": "2024-07-13T16:03:03.998Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ]
+        },
+        {
+            "_id": "a2205001-ad26-40b6-a6bb-96f268413d6c",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "980a4896-a675-49de-8b90-d2df9257e8d2",
+            "name": "update",
+            "url": "http://localhost:3333/profile",
+            "method": "PATCH",
+            "sortNum": 120000,
+            "created": "2024-07-10T15:56:42.557Z",
+            "modified": "2024-07-13T16:03:05.675Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Thiago Veiga Lima\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "b463b175-cc0c-43a7-9326-bd77149dccd0",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "0021bc0d-16de-466f-a923-01dcb4cd9f36",
+            "name": "create",
+            "url": "http://localhost:3333/customers",
+            "method": "POST",
+            "sortNum": 130000,
+            "created": "2024-07-11T18:24:59.668Z",
+            "modified": "2024-07-14T01:55:19.908Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Guto\",\n  \"email\": \"guto@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "d4053002-ab6f-4e63-9cdd-67be410b5dd4",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "0021bc0d-16de-466f-a923-01dcb4cd9f36",
+            "name": "list",
+            "url": "http://localhost:3333/customers",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2024-07-11T18:26:31.845Z",
+            "modified": "2024-07-13T16:03:19.506Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ]
+        },
+        {
+            "_id": "c2ae9b4c-cafa-4b5c-9ca9-14d874c746ab",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "0021bc0d-16de-466f-a923-01dcb4cd9f36",
+            "name": "show",
+            "url": "http://localhost:3333/customers/3",
+            "method": "GET",
+            "sortNum": 150000,
+            "created": "2024-07-11T18:26:43.124Z",
+            "modified": "2024-07-14T01:52:22.450Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ]
+        },
+        {
+            "_id": "28337782-4538-49d0-92e9-d7152bcbf58c",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "0021bc0d-16de-466f-a923-01dcb4cd9f36",
+            "name": "update",
+            "url": "http://localhost:3333/customers/3",
+            "method": "PATCH",
+            "sortNum": 160000,
+            "created": "2024-07-11T18:27:05.883Z",
+            "modified": "2024-07-14T02:01:51.881Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Guto José\",\n  \"email\": \"gutojose@gmail.com\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "68744ee8-a705-4b5a-8201-e508af11c232",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "0021bc0d-16de-466f-a923-01dcb4cd9f36",
+            "name": "delete",
+            "url": "http://localhost:3333/customers/3",
+            "method": "DELETE",
+            "sortNum": 170000,
+            "created": "2024-07-11T18:27:52.527Z",
+            "modified": "2024-07-14T02:01:56.726Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ]
+        },
+        {
+            "_id": "0036f848-f9b9-4aa8-9893-45019e8c902b",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "b86fd1b8-4ac0-432c-9137-aaaaffbbefa1",
+            "name": "show",
+            "url": "http://localhost:3333/orders/1",
+            "method": "GET",
+            "sortNum": 180000,
+            "created": "2024-07-12T03:10:47.546Z",
+            "modified": "2024-07-13T16:02:58.386Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ]
+        },
+        {
+            "_id": "8a56c92c-4965-4717-b518-0873856de38d",
+            "colId": "6cf68471-35e5-4d4f-9b5e-e2c313ccc37b",
+            "containerId": "b86fd1b8-4ac0-432c-9137-aaaaffbbefa1",
+            "name": "create",
+            "url": "http://localhost:3333/orders",
+            "method": "POST",
+            "sortNum": 190000,
+            "created": "2024-07-12T03:11:08.899Z",
+            "modified": "2024-07-13T16:02:55.662Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{token}}"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"customer_id\": \"1\",\n  \"products\": [\n    {\n      \"id\": 1,\n      \"quantity\": 1\n    },\n    {\n      \"id\": 2,\n      \"quantity\": 1\n    }  \n  ]\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "5xEn5_Y3naiKSO4PDMB1RgeTs30TmyCcEIwWadKUzbJsxcpEZLIggiOQgL4_wirWDUgAecT68Tc-tOTSwuFNMw"
+}
