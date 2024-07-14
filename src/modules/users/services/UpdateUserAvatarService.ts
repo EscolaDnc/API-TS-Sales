@@ -1,9 +1,9 @@
 import AppError from '@shared/errors/AppError';
-import { userRepository } from '../database/repositories/UserRepositories';
-import User from '../database/entities/User';
 import path from 'path';
 import uploadConfig from '@config/upload';
 import fs from 'fs';
+import { userRepository } from '../infra/database/repositories/UserRepositories';
+import User from '../infra/database/entities/User';
 
 interface IRequest {
   userId: string;

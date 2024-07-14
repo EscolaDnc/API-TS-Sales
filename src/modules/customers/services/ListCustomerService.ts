@@ -1,20 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 import { ICustomersRepository } from '../domain/repositories/ICustomersRepositories';
 import Customer from '../infra/database/entities/Customer';
+import { IPaginateCustomer } from '../domain/models/IPaginationCustomer';
 
-interface IPaginateCustomer {
-  from: number;
-  to: number;
-  per_page: number;
-  total: number;
-  current_page: number;
-  total_pages: number;
-  prev_page: number | null;
-  next_page: number | null;
-  data: Customer[];
-}
-
-injectable();
+@injectable()
 class ListCustomerService {
   constructor(
     @inject('CustomersRepository')

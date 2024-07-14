@@ -1,10 +1,9 @@
 import AppError from '@shared/errors/AppError';
 import { ICustomersRepository } from '../domain/repositories/ICustomersRepositories';
 import { inject, injectable } from 'tsyringe';
+import { IShowCustomer } from '../domain/models/IShowCustomer';
 
-interface IRequest {
-  id: string;
-}
+
 @injectable()
 class DeleteCustomerService {
   constructor(
@@ -12,7 +11,7 @@ class DeleteCustomerService {
     private customersRepository: ICustomersRepository,
   ) {}
 
-  public async execute({ id }: IRequest): Promise<void> {
+  public async execute({ id }: IShowCustomer): Promise<void> {
     const customer = await this.customersRepository.findById(id);
 
     if (!customer) {

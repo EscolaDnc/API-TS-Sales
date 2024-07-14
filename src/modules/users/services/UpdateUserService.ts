@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
 import { compare, hash } from 'bcrypt';
-import User from '../database/entities/User';
-import { userRepository } from '../database/repositories/UserRepositories';
+import { userRepository } from '../infra/database/repositories/UserRepositories';
+import User from '../infra/database/entities/User';
 
 interface IRequest {
   user_id: string;

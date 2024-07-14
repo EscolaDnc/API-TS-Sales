@@ -1,9 +1,9 @@
 import AppError from '@shared/errors/AppError';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
-import User from '../database/entities/User';
-import { userRepository } from '../database/repositories/UserRepositories';
 import 'dotenv/config';
+import { userRepository } from '../infra/database/repositories/UserRepositories';
+import User from '../infra/database/entities/User';
 
 interface IRequest {
   email: string;

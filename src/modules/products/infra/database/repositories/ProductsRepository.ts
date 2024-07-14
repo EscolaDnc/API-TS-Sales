@@ -1,6 +1,6 @@
-import { Product } from '@modules/products/database/entities/Product';
 import { AppDataSource } from '@shared/infra/typeorm/data-source';
 import { In } from 'typeorm';
+import { Product } from '../entities/Product';
 
 interface IFindProducts {
   id: string;

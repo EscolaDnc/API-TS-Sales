@@ -3,7 +3,7 @@ import ForgotPasswordController from '../controllers/ForgotPasswordController';
 import {
   ForgotPasswordSchema,
   ResetPasswordSchema,
-} from '../../../schemas/PasswordSchema';
+} from '@modules/users/infra/http/schemas/PasswordSchema';
 import ResetPasswordController from '../controllers/ResetPasswordController';
 
 const passwordRouter = Router();

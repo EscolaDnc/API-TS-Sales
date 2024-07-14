@@ -1,8 +1,8 @@
 import AppError from '@shared/errors/AppError';
-import { userRepository } from '../database/repositories/UserRepositories';
-import { userTokensRepository } from '../database/repositories/UserTokensRepositories';
 import { isAfter, addHours, add } from 'date-fns';
 import { hash } from 'bcrypt';
+import { userTokensRepository } from '../infra/database/repositories/UserTokensRepositories';
+import { userRepository } from '../infra/database/repositories/UserRepositories';
 
 interface IRequest {
   token: string;

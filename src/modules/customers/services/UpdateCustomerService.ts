@@ -2,21 +2,19 @@ import AppError from '@shared/errors/AppError';
 import Customer from '../infra/database/entities/Customer';
 import { ICustomersRepository } from '../domain/repositories/ICustomersRepositories';
 import { inject, injectable } from 'tsyringe';
-
-interface IRequest {
-  id: string;
-  name: string;
-  email: string;
-}
-
-injectable();
+import { IUpdateCustomer } from '../domain/models/IUpdateCustomer';
+@injectable()
 class UpdateCustomerService {
   constructor(
     @inject('CustomersRepository')
     private customersRepository: ICustomersRepository,
   ) {}
 
-  public async execute({ id, name, email }: IRequest): Promise<Customer> {
+  public async execute({
+    id,
+    name,
+    email,
+  }: IUpdateCustomer): Promise<Customer> {
     const customer = await this.customersRepository.findById(id);
 
     if (!customer) {

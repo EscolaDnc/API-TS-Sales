@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import UsersController from '../controllers/UserController';
-import { userSchemaValidation } from '../../../schemas/UserSchema';
 import isAuthenticated from '@shared/infra/http/middlewares/isAuthenticated';
 import multer from 'multer';
 import uploadConfig from '@config/upload';
 import UserAvatarController from '../controllers/UserAvatarController';
+import { userSchemaValidation } from '../schemas/UserSchema';
 
 const usersRouter = Router();
 const usersController = new UsersController();

@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import CreateCustomerService from '../../../services/CreateCustomerService';
-import DeleteCustomerService from '../../../services/DeleteCustomerService';
-import ListCustomerService from '../../../services/ListCustomerService';
-import ShowCustomerService from '../../../services/ShowCustomerService';
-import UpdateCustomerService from '../../../services/UpdateCustomerService';
+import CreateCustomerService from '@modules/customers/services/CreateCustomerService';
+import DeleteCustomerService from '@modules/customers/services/DeleteCustomerService';
+import ListCustomerService from '@modules/customers/services/ListCustomerService';
+import ShowCustomerService from '@modules/customers/services/ShowCustomerService';
+import UpdateCustomerService from '@modules/customers/services/UpdateCustomerService';
 import { container } from 'tsyringe';
 
 export default class CustomersController {
@@ -12,7 +12,6 @@ export default class CustomersController {
     const limit = parseInt(request.query.limit as string) || 10;
 
     const listCustomers = container.resolve(ListCustomerService);
-
     const customers = await listCustomers.execute(page, limit);
 
     return response.json(customers);

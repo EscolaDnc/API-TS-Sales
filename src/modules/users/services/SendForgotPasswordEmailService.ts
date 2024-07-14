@@ -1,7 +1,7 @@
 import AppError from '@shared/errors/AppError';
-import { userRepository } from '../database/repositories/UserRepositories';
-import { userTokensRepository } from '../database/repositories/UserTokensRepositories';
 import { sendEmail } from '@config/email';
+import { userRepository } from '../infra/database/repositories/UserRepositories';
+import { userTokensRepository } from '../infra/database/repositories/UserTokensRepositories';
 
 interface IRequest {
   email: string;

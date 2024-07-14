@@ -1,8 +1,8 @@
+import { productRepository } from '@modules/products/infra/database/repositories/ProductsRepository';
 import AppError from '@shared/errors/AppError';
-import { customerRepository } from '@modules/customers/infra/database/repositories/CustomerRepositories';
-import { productRepository } from '@modules/products/database/repositories/ProductsRepository';
-import { ordersRepository } from '../database/repositories/OrdersRepository';
-import Order from '../database/entities/Order';
+import Order from '../infra/database/entities/Order';
+import { ordersRepository } from '../infra/database/repositories/OrdersRepository';
+import customersRepository from '@modules/customers/infra/database/repositories/CustomerRepositories';
 
 interface IProduct {
   id: string;
@@ -17,6 +17,7 @@ interface IRequest {
 class CreateOrderService {
   public async execute({ customer_id, products }: IRequest): Promise<Order> {
     // video 1
+    const customerRepository = new customersRepository();
     const customerExists = await customerRepository.findById(customer_id);
 
     if (!customerExists) {
