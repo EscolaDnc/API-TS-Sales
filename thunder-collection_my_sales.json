@@ -250,7 +250,7 @@
             "headers": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"token\": \"27983b4c-517a-430f-a8fc-7ca55891f7af\",\n  \"password\": \"1234\",\n  \"password_confirmation\": \"1234\"\n}",
+                "raw": "{\n  \"token\": \"\",\n  \"password\": \"\",\n  \"password_confirmation\": \"\"\n}",
                 "form": []
             }
         },
