@@ -2,8 +2,10 @@ import AppError from '@shared/errors/AppError';
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 import 'dotenv/config';
-import { userRepository } from '../infra/database/repositories/UserRepositories';
 import User from '../infra/database/entities/User';
+import 'reflect-metadata';
+import { inject, injectable } from 'tsyringe';
+import { IUsersRepository } from '../domain/repositories/IUserRepositories';
 
 interface IRequest {
   email: string;
@@ -14,10 +16,14 @@ interface IResponse {
   user: User;
   token: string;
 }
-
+@injectable()
 class CreateSessionsService {
+  constructor(
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
+  ) {}
   public async execute({ email, password }: IRequest): Promise<IResponse> {
-    const user = await userRepository.findByEmail(email);
+    const user = await this.usersRepository.findByEmail(email);
 
     if (!user) {
       throw new AppError('Incorrect email/password combination.', 401);

@@ -4,18 +4,25 @@ import ShowProductService from '@modules/products/services/ShowProductService';
 import { CreateProductService } from '@modules/products/services/CreateProductService';
 import UpdateProductService from '@modules/products/services/UpdateProductService';
 import DeleteProductService from '@modules/products/services/DeleteProductService';
+import { container } from 'tsyringe';
 
 export default class ProductsController {
   public async index(request: Request, response: Response): Promise<Response> {
-    const listProductsService = new ListProductsService();
-    const products = await listProductsService.execute();
+    const { page, skip, take } = request.query;
+    const listProductsService = container.resolve(ListProductsService);
+    const products = await listProductsService.execute({
+      page: Number(page),
+      skip: Number(skip),
+      take: Number(take),
+    });
 
     return response.json(products);
   }
 
   public async show(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
-    const showProductService = new ShowProductService();
+    const showProductService = container.resolve(ShowProductService);
+
     const products = await showProductService.execute({ id });
 
     return response.json(products);
@@ -24,7 +31,8 @@ export default class ProductsController {
   public async create(request: Request, response: Response): Promise<Response> {
     const { name, price, quantity } = request.body;
 
-    const createProductService = new CreateProductService();
+    const createProductService = container.resolve(CreateProductService);
+
     const product = await createProductService.execute({
       name,
       price,
@@ -38,7 +46,8 @@ export default class ProductsController {
     const { id } = request.params;
     const { name, price, quantity } = request.body;
 
-    const updateProductService = new UpdateProductService();
+    const updateProductService = container.resolve(UpdateProductService);
+
     const product = await updateProductService.execute({
       id,
       name,
@@ -52,7 +61,8 @@ export default class ProductsController {
   public async delete(request: Request, response: Response): Promise<Response> {
     const { id } = request.params;
 
-    const deleteProductService = new DeleteProductService();
+    const deleteProductService = container.resolve(DeleteProductService);
+
     await deleteProductService.execute({ id });
 
     return response.status(204).send([]);

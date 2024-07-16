@@ -1,14 +1,19 @@
 import AppError from '@shared/errors/AppError';
 import RedisCache from '@shared/cache/RedisCache';
-import { productRepository } from '../infra/database/repositories/ProductsRepository';
+import { inject, injectable } from 'tsyringe';
+import { IProductsRepository } from '../domain/repositories/IProductsRepository';
 
 interface IRequest {
   id: string;
 }
-
+@injectable()
 class DeleteProductService {
+  constructor(
+    @inject('ProductsRepository')
+    private productsRepository: IProductsRepository,
+  ) {}
   public async execute({ id }: IRequest): Promise<void> {
-    const product = await productRepository.findOneBy({ id });
+    const product = await this.productsRepository.findById(id);
 
     if (!product) {
       throw new AppError('Product not found.');
@@ -18,7 +23,7 @@ class DeleteProductService {
 
     await redisCache.invalidate('api-vendas-PRODUCT_LIST');
 
-    await productRepository.remove(product);
+    await this.productsRepository.remove(product);
   }
 }
 

@@ -2,17 +2,22 @@ import AppError from '@shared/errors/AppError';
 import path from 'path';
 import uploadConfig from '@config/upload';
 import fs from 'fs';
-import { userRepository } from '../infra/database/repositories/UserRepositories';
 import User from '../infra/database/entities/User';
+import { IUsersRepository } from '../domain/repositories/IUserRepositories';
+import { inject, injectable } from 'tsyringe';
 
 interface IRequest {
   userId: string;
   avatarFileName: string;
 }
-
+@injectable()
 class UpdateUserAvatarService {
+  constructor(
+    @inject('UsersRepository')
+    private usersRepository: IUsersRepository,
+  ) {}
   public async execute({ userId, avatarFileName }: IRequest): Promise<User> {
-    const user = await userRepository.findById(userId);
+    const user = await this.usersRepository.findById(userId);
 
     if (!user) {
       throw new AppError('User not found.', 404);
@@ -29,7 +34,7 @@ class UpdateUserAvatarService {
 
     user.avatar = avatarFileName;
 
-    await userRepository.save(user);
+    await this.usersRepository.save(user);
 
     return user;
   }
